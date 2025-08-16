@@ -10,12 +10,19 @@ function crearCurso(curso, estado = "bloqueado") {
   div.dataset.codigo = curso.codigo;
   div.innerText = curso.nombre;
 
-  // Evento clic para aprobar cursos
+  // Evento clic para alternar estados
   div.addEventListener("click", () => {
     if (div.classList.contains("desbloqueado")) {
+      // Pasa a aprobado
       div.classList.remove("desbloqueado");
       div.classList.add("aprobado");
       desbloquearDependientes(curso.codigo);
+
+    } else if (div.classList.contains("aprobado")) {
+      // Vuelve a bloqueado
+      div.classList.remove("aprobado");
+      div.classList.add("bloqueado");
+      reBloquearDependientes(curso.codigo);
     }
   });
 
@@ -58,6 +65,22 @@ function desbloquearDependientes(codigo) {
           div.classList.remove("bloqueado");
           div.classList.add("desbloqueado");
         }
+      }
+    }
+  });
+}
+
+function reBloquearDependientes(codigo) {
+  listaCursos.forEach(curso => {
+    if (curso.prerequisitos.includes(codigo)) {
+      const div = document.querySelector(`[data-codigo="${curso.codigo}"]`);
+      if (div.classList.contains("desbloqueado") || div.classList.contains("aprobado")) {
+        // Se bloquea de nuevo
+        div.classList.remove("desbloqueado", "aprobado");
+        div.classList.add("bloqueado");
+
+        // Rebloqueo en cadena
+        reBloquearDependientes(curso.codigo);
       }
     }
   });
