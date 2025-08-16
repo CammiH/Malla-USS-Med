@@ -1,64 +1,67 @@
 async function cargarCursos() {
   const response = await fetch("data.json");
   const cursos = await response.json();
+  return cursos;
+}
 
+function crearCurso(curso, estado = "bloqueado") {
+  const div = document.createElement("div");
+  div.classList.add("curso", curso.tipo, estado);
+  div.dataset.codigo = curso.codigo;
+  div.innerText = curso.nombre;
+
+  // Evento clic para aprobar cursos
+  div.addEventListener("click", () => {
+    if (div.classList.contains("desbloqueado")) {
+      div.classList.remove("desbloqueado");
+      div.classList.add("aprobado");
+      desbloquearDependientes(curso.codigo);
+    }
+  });
+
+  return div;
+}
+
+let listaCursos = [];
+
+function renderCursos(cursos) {
   const contenedor = document.getElementById("contenedor");
   contenedor.innerHTML = "";
 
   cursos.forEach(curso => {
-    const div = document.createElement("div");
-    div.classList.add("curso", curso.tipo, curso.estado);
-    div.textContent = curso.nombre;
+    let estado = "bloqueado";
 
-    // 👉 interacción con clic
-    div.addEventListener("click", () => {
-      if (curso.estado === "actual") {
-        curso.estado = "aprobado"; // al hacer click pasa a aprobado
-      } else if (curso.estado === "bloqueado") {
-        curso.estado = "actual"; // desbloqueado pasa a actual
+    // desbloqueado si no tiene prerequisitos
+    if (curso.prerequisitos.length === 0) {
+      estado = "desbloqueado";
+    }
+
+    const divCurso = crearCurso(curso, estado);
+    contenedor.appendChild(divCurso);
+  });
+
+  listaCursos = cursos;
+}
+
+function desbloquearDependientes(codigo) {
+  listaCursos.forEach(curso => {
+    if (curso.prerequisitos.includes(codigo)) {
+      const div = document.querySelector(`[data-codigo="${curso.codigo}"]`);
+      if (div.classList.contains("bloqueado")) {
+        // verificamos si TODOS los prerequisitos ya están aprobados
+        const todosAprobados = curso.prerequisitos.every(pre => {
+          const divPre = document.querySelector(`[data-codigo="${pre}"]`);
+          return divPre.classList.contains("aprobado");
+        });
+
+        if (todosAprobados) {
+          div.classList.remove("bloqueado");
+          div.classList.add("desbloqueado");
+        }
       }
-      guardarEstado(cursos); // guardamos los cambios
-      renderizar(cursos);   // volvemos a pintar
-    });
-
-    contenedor.appendChild(div);
+    }
   });
 }
 
-function renderizar(cursos) {
-  const contenedor = document.getElementById("contenedor");
-  contenedor.innerHTML = "";
-
-  cursos.forEach(curso => {
-    const div = document.createElement("div");
-    div.classList.add("curso", curso.tipo, curso.estado);
-    div.textContent = curso.nombre;
-
-    div.addEventListener("click", () => {
-      if (curso.estado === "actual") {
-        curso.estado = "aprobado";
-      } else if (curso.estado === "bloqueado") {
-        curso.estado = "actual";
-      }
-      guardarEstado(cursos);
-      renderizar(cursos);
-    });
-
-    contenedor.appendChild(div);
-  });
-}
-
-function guardarEstado(cursos) {
-  localStorage.setItem("cursos", JSON.stringify(cursos));
-}
-
-async function iniciar() {
-  let cursosGuardados = localStorage.getItem("cursos");
-  if (cursosGuardados) {
-    renderizar(JSON.parse(cursosGuardados));
-  } else {
-    await cargarCursos();
-  }
-}
-
-iniciar();
+// Inicializar
+cargarCursos().then(renderCursos);
