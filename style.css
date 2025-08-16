@@ -1,0 +1,95 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fffdfc;
+  color: #333;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #574838;
+}
+
+#malla {
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.curso {
+  border: 2px solid #574838;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.curso.general {
+  background-color: #bbc68e;
+}
+
+.curso.especifico {
+  background-color: #bad6da;
+}
+
+.curso.especialidad {
+  background-color: #d37e91;
+}
+
+.curso.bloqueado {
+  background-color: #f0f0f0;
+  opacity: 0.5;
+  filter: blur(1px);
+}
+
+.curso.aprobado {
+  background-color: #e0e0e0;
+  opacity: 0.8;
+  text-decoration: line-through;
+}
+
+#leyenda {
+  margin-top: 40px;
+  text-align: center;
+}
+
+#leyenda ul {
+  list-style: none;
+  padding: 0;
+}
+
+#leyenda li {
+  margin: 8px 0;
+}
+
+.cuadro {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
+  border: 1px solid #574838;
+}
+
+.cuadro.general {
+  background-color: #bbc68e;
+}
+
+.cuadro.especifico {
+  background-color: #bad6da;
+}
+
+.cuadro.especialidad {
+  background-color: #d37e91;
+}
+
+.cuadro.bloqueado {
+  background-color: #f0f0f0;
+}
+
+.cuadro.aprobado {
+  background-color: #e0e0e0;
+}

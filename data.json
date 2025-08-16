@@ -1,0 +1,24 @@
+[
+  {
+    "ciclo": "Ciclo 1",
+    "cursos": [
+      { "codigo": "1EG011", "nombre": "INICIACIÓN A LA INVESTIGACIÓN", "tipo": "general", "estado": "bloqueado" },
+      { "codigo": "1EG012", "nombre": "COMPRENSIÓN DE TEXTOS Y REDACCIÓN ACADÉMICA", "tipo": "general", "estado": "bloqueado" },
+      { "codigo": "1EG013", "nombre": "PERSONAL BRANDING", "tipo": "general", "estado": "bloqueado" },
+      { "codigo": "1EG014", "nombre": "COMPROMISO ÉTICO", "tipo": "general", "estado": "bloqueado" },
+      { "codigo": "1MH011", "nombre": "BIOLOGÍA CELULAR Y MOLECULAR", "tipo": "especifico", "estado": "bloqueado" },
+      { "codigo": "1MH012", "nombre": "INTRODUCCIÓN A LA MEDICINA", "tipo": "especifico", "estado": "bloqueado" }
+    ]
+  },
+  {
+    "ciclo": "Ciclo 2",
+    "cursos": [
+      { "codigo": "1EG021", "nombre": "PENSAMIENTO LÓGICO MATEMÁTICO", "tipo": "general", "estado": "bloqueado" },
+      { "codigo": "1EG022", "nombre": "CÁTEDRA SIPÁN", "tipo": "general", "estado": "bloqueado" },
+      { "codigo": "1EG023", "nombre": "RESPONSABILIDAD SOCIAL", "tipo": "general", "estado": "bloqueado" },
+      { "codigo": "1EG024", "nombre": "INGLÉS I", "tipo": "general", "estado": "bloqueado" },
+      { "codigo": "1MH021", "nombre": "FÍSICA MÉDICA", "tipo": "especifico", "estado": "bloqueado" },
+      { "codigo": "1MH022", "nombre": "BIOQUÍMICA", "tipo": "especifico", "estado": "bloqueado" }
+    ]
+  }
+]
