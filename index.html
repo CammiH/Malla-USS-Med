@@ -1,23 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Malla Curricular Medicina Humana</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Malla Curricular Medicina Humana</h1>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malla Curricular Interactiva</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
 
-  <!-- Aquí se van a renderizar los cursos -->
-  <div id="contenedor" class="malla"></div>
+  .malla {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    gap: 20px;
+  }
 
-  <!-- Leyenda -->
-  <div id="leyenda">
-    <span class="general">General</span>
-    <span class="especifico">Específico</span>
-    <span class="especialidad">Especialidad</span>
-  </div>
+  .curso {
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    color: #000;
+    user-select: none;
+    transition: all 0.2s ease;
+  }
 
-  <script src="script.js"></script>
-</body>
-</html>
+  /* Colores según tipo de curso */
+  .especialidad { background-color: #F9CEDF; }
+  .general { background-color: #C7EFCF; }
+  .especifico { background-color: #D7EFFB; }
+  .bloqueado { background-color: #FDF6EC; color: #aaa; }
+
+  /* Curso aprobado */
+  .aprobado {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+
+  /* Leyenda */
+  .leyenda {
+    margin-top: 30px;
+  }
+  .leyenda div {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .leyenda .especialidad { background-color: #F9CEDF; }
+  .leyenda .general { background-color:
