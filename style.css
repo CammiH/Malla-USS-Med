@@ -10,12 +10,23 @@ h1 {
   color: #333;
 }
 
-/* Contenedor de cursos */
+/* Contenedor principal en FILAS horizontales */
 #contenedor {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;   /* columnas en horizontal */
+  gap: 40px;             /* espacio entre ciclos */
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-x: auto;      /* scroll horizontal si no entra todo */
+  padding: 10px;
+}
+
+/* Cada ciclo es una columna */
+.ciclo {
+  display: flex;
+  flex-direction: column;
   gap: 15px;
-  justify-content: center;
+  align-items: center;
 }
 
 /* Caja general de cada curso */
