@@ -1,95 +1,110 @@
 body {
   font-family: Arial, sans-serif;
-  background: #fffdfc;
-  color: #333;
-  margin: 20px;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
 }
 
 h1 {
-  text-align: center;
-  color: #574838;
+  color: #333;
+  margin-bottom: 30px;
 }
 
-#malla {
-  display: grid;
-  grid-template-columns: repeat(4, 250px);
-  gap: 20px;
+.ciclo {
+  margin-bottom: 40px;
+}
+
+.ciclo h2 {
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.cursos {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 30px;
+  gap: 15px;
 }
 
 .curso {
-  border: 2px solid #574838;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
+  width: 200px;
+  height: 80px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-.curso.general {
-  background-color: #bbc68e;
-}
-
-.curso.especifico {
-  background-color: #bad6da;
-}
-
-.curso.especialidad {
-  background-color: #d37e91;
-}
-
-.curso.bloqueado {
-  background-color: #f0f0f0;
-  opacity: 0.5;
-  filter: blur(1px);
-}
-
-.curso.aprobado {
-  background-color: #e0e0e0;
-  opacity: 0.8;
-  text-decoration: line-through;
-}
-
-#leyenda {
-  margin-top: 40px;
   text-align: center;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+  border: 2px solid transparent;
 }
 
-#leyenda ul {
-  list-style: none;
-  padding: 0;
+/* ===== Colores por tipo ===== */
+.general {
+  border-color: #bbc68e; /* borde verde pastel */
 }
 
-#leyenda li {
-  margin: 8px 0;
+.especifico {
+  border-color: #bad6da; /* borde celeste pastel */
 }
 
-.cuadro {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-  vertical-align: middle;
-  border: 1px solid #574838;
+.especialidad {
+  border-color: #d37e91; /* borde rosado pastel */
 }
 
-.cuadro.general {
+/* ===== Estados ===== */
+
+/* BLOQUEADO → Fantasma con borde de color */
+.bloqueado {
+  background-color: rgba(240,240,240,0.6);
+  color: #aaa;
+  filter: blur(0.8px);
+  pointer-events: none;
+}
+
+/* ACTUAL → Colores fuertes */
+.general.actual {
   background-color: #bbc68e;
+  color: #fff;
 }
 
-.cuadro.especifico {
+.especifico.actual {
   background-color: #bad6da;
+  color: #fff;
 }
 
-.cuadro.especialidad {
+.especialidad.actual {
   background-color: #d37e91;
+  color: #fff;
 }
 
-.cuadro.bloqueado {
-  background-color: #f0f0f0;
+/* APROBADO → Más clarito, difuminado */
+.general.aprobado {
+  background-color: #e0e6c5;
+  color: #555;
 }
 
-.cuadro.aprobado {
-  background-color: #e0e0e0;
+.especifico.aprobado {
+  background-color: #d9ebed;
+  color: #555;
 }
+
+.especialidad.aprobado {
+  background-color: #e9c0c9;
+  color: #555;
+}
+
+/* ===== Leyenda ===== */
+.leyenda {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.leyenda-item {
+  display: flex;
+  a
