@@ -49,4 +49,44 @@
     border-radius: 5px;
   }
   .leyenda .especialidad { background-color: #F9CEDF; }
-  .leyenda .general { background-color:
+  .leyenda .general { background-color: #C7EFCF; }
+  .leyenda .especifico { background-color: #D7EFFB; }
+</style>
+</head>
+<body>
+
+<h2>Malla Curricular Interactiva (Cursos 1-3)</h2>
+
+<div class="malla">
+  <div class="curso bloqueado" data-tipo="especialidad" data-aprobado="false">Curso 1</div>
+  <div class="curso bloqueado" data-tipo="general" data-aprobado="false">Curso 2</div>
+  <div class="curso bloqueado" data-tipo="especifico" data-aprobado="false">Curso 3</div>
+</div>
+
+<div class="leyenda">
+  <div class="especialidad">Especialidad</div>
+  <div class="general">General</div>
+  <div class="especifico">Específico</div>
+</div>
+
+<script>
+  const cursos = document.querySelectorAll('.curso');
+
+  cursos.forEach(curso => {
+    curso.addEventListener('click', () => {
+      // Si está bloqueado, desbloqueamos
+      if (curso.classList.contains('bloqueado')) {
+        curso.classList.remove('bloqueado');
+        curso.classList.add(curso.dataset.tipo);
+      } 
+      // Si ya estaba desbloqueado, volvemos a bloquear
+      else {
+        curso.classList.remove(curso.dataset.tipo);
+        curso.classList.add('bloqueado');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
