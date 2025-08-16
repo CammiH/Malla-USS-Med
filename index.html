@@ -2,25 +2,30 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Malla Curricular Medicina Humana</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Malla Curricular Medicina Humana</h1>
+  <div id="malla"></div>
 
-  <!-- Contenedor de los cursos -->
-  <div id="contenedor"></div>
-
-  <!-- Leyenda de tipos de curso -->
-  <div class="leyenda">
-    <div class="leyenda-item">
-      <div class="leyenda-color leyenda-general"></div> Generales
-    </div>
-    <div class="leyenda-item">
-      <div class="leyenda-color leyenda-especifico"></div> Específicos
-    </div>
-    <div class="leyenda-item">
-      <div class="leyenda-color leyenda-especialidad"></div> Especialidad
+  <!-- Leyenda con colores -->
+  <div id="leyenda">
+    <h2>Leyenda</h2>
+    <div style="display: flex; gap: 15px; justify-content: center; margin-top: 10px;">
+      <div style="display: flex; align-items: center; gap: 5px;">
+        <span style="display:inline-block; width:20px; height:20px; background:#bbc68e; border-radius:4px;"></span>
+        <span>Generales</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 5px;">
+        <span style="display:inline-block; width:20px; height:20px; background:#bad6da; border-radius:4px;"></span>
+        <span>Específicos</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 5px;">
+        <span style="display:inline-block; width:20px; height:20px; background:#d37e91; border-radius:4px;"></span>
+        <span>Especialidad</span>
+      </div>
     </div>
   </div>
 
