@@ -1,83 +1,93 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #fff;
-  margin: 20px;
   text-align: center;
+  background: #fafafa;
+  margin: 20px;
 }
 
 h1 {
   margin-bottom: 20px;
-  color: #333;
 }
 
-/* Contenedor principal en FILAS horizontales */
-#contenedor {
+.malla {
   display: flex;
-  flex-direction: row;   /* columnas en horizontal */
-  gap: 40px;             /* espacio entre ciclos */
-  justify-content: flex-start;
-  align-items: flex-start;
-  overflow-x: auto;      /* scroll horizontal si no entra todo */
-  padding: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
-/* Cada ciclo es una columna */
-.ciclo {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
-}
-
-/* Caja general de cada curso */
 .curso {
-  width: 180px;
+  width: 160px;
   height: 80px;
-  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
+  color: #333;
+  font-size: 14px;
   font-weight: bold;
-  text-align: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s;
 }
 
-/* ===== Colores base según tipo ===== */
-.generales {
-  background-color: #bbc68e;
-}
-
-.especificos {
-  background-color: #bad6da;
-}
-
-.especialidad {
-  background-color: #d37e91;
-}
-
-/* ===== ESTADOS ===== */
-
-/* Bloqueado = fantasma */
+/* Estados */
 .bloqueado {
-  opacity: 0.2;
+  background: #f2f2f2;
+  color: #aaa;
   filter: blur(1px);
   cursor: not-allowed;
 }
 
-/* Desbloqueado = activo */
-.desbloqueado {
-  opacity: 1;
-  filter: none;
-  border: 3px solid #574838;
+.desbloqueado.general {
+  background: #bbc68e;
 }
 
-/* Aprobado = más claro */
-.aprobado {
-  opacity: 0.6;
-  filter: none;
-  text-decoration: line-through;
-  text-decoration-thickness: 2px;
-  text-decoration-color: #574838;
+.desbloqueado.especifico {
+  background: #bad6da;
+}
+
+.desbloqueado.especialidad {
+  background: #d37e91;
+}
+
+.aprobado.general {
+  background: #e3e9c9;
+  opacity: 0.7;
+}
+
+.aprobado.especifico {
+  background: #dceff0;
+  opacity: 0.7;
+}
+
+.aprobado.especialidad {
+  background: #e9c1c9;
+  opacity: 0.7;
+}
+
+/* Leyenda */
+#leyenda {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+#leyenda span {
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+}
+
+#leyenda .general {
+  background: #bbc68e;
+}
+
+#leyenda .especifico {
+  background: #bad6da;
+}
+
+#leyenda .especialidad {
+  background: #d37e91;
 }
