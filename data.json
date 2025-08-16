@@ -3,18 +3,53 @@
     {
       "nombre": "Ciclo 1",
       "cursos": [
-        { "codigo": "1EG011", "nombre": "Iniciación a la Investigación", "tipo": "generales", "prerequisitos": [] },
-        { "codigo": "1EG012", "nombre": "Comprensión de Textos", "tipo": "generales", "prerequisitos": [] },
-        { "codigo": "1MH011", "nombre": "Biología Celular", "tipo": "especificos", "prerequisitos": [] },
-        { "codigo": "1MH012", "nombre": "Introducción a la Medicina", "tipo": "especificos", "prerequisitos": [] }
+        {
+          "codigo": "1EG011",
+          "nombre": "Iniciación a la Investigación",
+          "tipo": "general",
+          "prerequisitos": []
+        },
+        {
+          "codigo": "1EG012",
+          "nombre": "Comprensión de Textos y Redacción Académica",
+          "tipo": "general",
+          "prerequisitos": []
+        },
+        {
+          "codigo": "1MH011",
+          "nombre": "Biología Celular y Molecular",
+          "tipo": "especifico",
+          "prerequisitos": []
+        },
+        {
+          "codigo": "1MH012",
+          "nombre": "Introducción a la Medicina",
+          "tipo": "especialidad",
+          "prerequisitos": []
+        }
       ]
     },
     {
       "nombre": "Ciclo 2",
       "cursos": [
-        { "codigo": "1EG021", "nombre": "Pensamiento Lógico Matemático", "tipo": "generales", "prerequisitos": [] },
-        { "codigo": "1MH021", "nombre": "Física Médica", "tipo": "especificos", "prerequisitos": ["1MH011"] },
-        { "codigo": "1MH022", "nombre": "Bioquímica", "tipo": "especificos", "prerequisitos": ["1MH011"] }
+        {
+          "codigo": "1EG021",
+          "nombre": "Pensamiento Lógico Matemático",
+          "tipo": "general",
+          "prerequisitos": []
+        },
+        {
+          "codigo": "1MH021",
+          "nombre": "Física Médica",
+          "tipo": "especifico",
+          "prerequisitos": ["1MH011"]
+        },
+        {
+          "codigo": "1MH022",
+          "nombre": "Bioquímica",
+          "tipo": "especifico",
+          "prerequisitos": ["1MH011"]
+        }
       ]
     }
   ]
