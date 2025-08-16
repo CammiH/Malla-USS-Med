@@ -1,110 +1,87 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #fafafa;
-  margin: 0;
-  padding: 20px;
+  background: #fff;
+  margin: 20px;
   text-align: center;
 }
 
 h1 {
-  color: #333;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-.ciclo {
+/* Contenedor de cursos */
+#contenedor {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  justify-content: center;
   margin-bottom: 40px;
 }
 
-.ciclo h2 {
-  margin-bottom: 20px;
-  color: #444;
-}
-
-.cursos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-
+/* Estilos base de cada curso */
 .curso {
-  width: 200px;
-  height: 80px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
   font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: all 0.3s ease-in-out;
-  border: 2px solid transparent;
 }
 
-/* ===== Colores por tipo ===== */
+/* Colores según tipo de curso */
 .general {
-  border-color: #bbc68e; /* borde verde pastel */
-}
-
-.especifico {
-  border-color: #bad6da; /* borde celeste pastel */
-}
-
-.especialidad {
-  border-color: #d37e91; /* borde rosado pastel */
-}
-
-/* ===== Estados ===== */
-
-/* BLOQUEADO → Fantasma con borde de color */
-.bloqueado {
-  background-color: rgba(240,240,240,0.6);
-  color: #aaa;
-  filter: blur(0.8px);
-  pointer-events: none;
-}
-
-/* ACTUAL → Colores fuertes */
-.general.actual {
   background-color: #bbc68e;
   color: #fff;
 }
-
-.especifico.actual {
+.especifico {
   background-color: #bad6da;
-  color: #fff;
+  color: #000;
 }
-
-.especialidad.actual {
+.especialidad {
   background-color: #d37e91;
   color: #fff;
 }
 
-/* APROBADO → Más clarito, difuminado */
-.general.aprobado {
-  background-color: #e0e6c5;
-  color: #555;
+/* Estados */
+.bloqueado {
+  filter: grayscale(100%) opacity(40%);
+  cursor: not-allowed;
 }
 
-.especifico.aprobado {
-  background-color: #d9ebed;
-  color: #555;
+.actual {
+  border: 2px solid #333;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-.especialidad.aprobado {
-  background-color: #e9c0c9;
-  color: #555;
+.aprobado {
+  opacity: 0.6;
 }
 
-/* ===== Leyenda ===== */
+/* Leyenda */
 .leyenda {
-  margin-top: 50px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .leyenda-item {
   display: flex;
-  a
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.leyenda-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.leyenda-general { background: #bbc68e; }
+.leyenda-especifico { background: #bad6da; }
+.leyenda-especialidad { background: #d37e91; }
