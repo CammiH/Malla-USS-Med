@@ -1,87 +1,72 @@
 body {
   font-family: Arial, sans-serif;
-  background: #fff;
+  background-color: #fff;
   margin: 20px;
   text-align: center;
 }
 
 h1 {
   margin-bottom: 20px;
+  color: #333;
 }
 
 /* Contenedor de cursos */
 #contenedor {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
-  margin-bottom: 40px;
 }
 
-/* Estilos base de cada curso */
+/* Caja general de cada curso */
 .curso {
-  padding: 15px;
-  border-radius: 10px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  min-height: 80px;
+  width: 180px;
+  height: 80px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
   text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Colores según tipo de curso */
-.general {
+/* ===== Colores base según tipo ===== */
+.generales {
   background-color: #bbc68e;
-  color: #fff;
 }
-.especifico {
+
+.especificos {
   background-color: #bad6da;
-  color: #000;
 }
+
 .especialidad {
   background-color: #d37e91;
-  color: #fff;
 }
 
-/* Estados */
+/* ===== ESTADOS ===== */
+
+/* Bloqueado = fantasma */
 .bloqueado {
-  filter: grayscale(100%) opacity(40%);
+  opacity: 0.2;
+  filter: blur(1px);
   cursor: not-allowed;
 }
 
-.actual {
-  border: 2px solid #333;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+/* Desbloqueado = activo */
+.desbloqueado {
+  opacity: 1;
+  filter: none;
+  border: 3px solid #574838;
 }
 
+/* Aprobado = más claro */
 .aprobado {
   opacity: 0.6;
+  filter: none;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #574838;
 }
-
-/* Leyenda */
-.leyenda {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.leyenda-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 14px;
-}
-
-.leyenda-color {
-  width: 20px;
-  height: 20px;
-  border-radius: 5px;
-}
-
-.leyenda-general { background: #bbc68e; }
-.leyenda-especifico { background: #bad6da; }
-.leyenda-especialidad { background: #d37e91; }
