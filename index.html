@@ -3,48 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <title>Malla Medicina Humana</title>
+  <!-- Aquí le decimos que busque los estilos en otro archivo -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Malla Interactiva - Medicina Humana</h1>
 
-  <!-- Ciclo I -->
+  <!-- CICLO I -->
   <div class="ciclo" id="ciclo1">
-    <div class="curso general bloqueado" id="curso1" onclick="toggleEstado(this)">
+    <div class="curso general bloqueado" id="ctra" onclick="toggleEstado(this)">
       Comprensión de Textos y Redacción Académica
     </div>
-    <div class="curso especifico bloqueado" id="curso2" onclick="toggleEstado(this)">
+    <div class="curso especifico bloqueado" id="biocel" onclick="toggleEstado(this)">
       Biología Celular y Molecular
     </div>
-    <div class="curso especifico bloqueado" id="curso3" onclick="toggleEstado(this)">
+    <div class="curso especifico bloqueado" id="intro" onclick="toggleEstado(this)">
       Introducción a la Medicina
     </div>
   </div>
 
-  <!-- Ciclo II -->
+  <!-- CICLO II -->
   <div class="ciclo" id="ciclo2">
-    <div class="curso especifico bloqueado" id="curso4" onclick="toggleEstado(this)">
-      Física Médica
-    </div>
-    <div class="curso especifico bloqueado" id="curso5" onclick="toggleEstado(this)">
+    <div class="curso especifico bloqueado" id="bioq" onclick="toggleEstado(this)">
       Bioquímica
     </div>
-    <div class="curso especifico bloqueado" id="curso6" onclick="toggleEstado(this)">
+    <div class="curso especifico bloqueado" id="ef1" onclick="toggleEstado(this)">
       Estructura y Función I
-    </div>
-    <div class="curso especifico bloqueado" id="curso7" onclick="toggleEstado(this)">
-      Estructura y Función II
     </div>
   </div>
 
-  <!-- Flechas (SVG para unir prerequisitos) -->
+  <!-- Flechas para prerequisitos -->
   <svg class="prerequisitos">
-    <!-- Ejemplo: Biología Celular (curso2) es prerequisito de Bioquímica (curso5) -->
+    <!-- Biología Celular → Bioquímica -->
     <line x1="250" y1="120" x2="250" y2="260"></line>
-    <!-- Ejemplo: Introducción a la Medicina (curso3) es prerequisito de Estructura y Función I (curso6) -->
+    <!-- Introducción a la Medicina → Estructura y Función I -->
     <line x1="400" y1="120" x2="400" y2="260"></line>
   </svg>
 
+  <!-- Aquí enlazamos el archivo de funciones -->
   <script src="script.js"></script>
 </body>
 </html>
