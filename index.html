@@ -3,45 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Malla Medicina Humana</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #fff;
-      margin: 20px;
-      text-align: center;
-    }
-    h1 {
-      margin-bottom: 20px;
-    }
-    .ciclo {
-      margin: 20px auto;
-      padding: 10px;
-      border: 2px solid #ccc;
-      border-radius: 12px;
-      width: 80%;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    .curso {
-      padding: 15px;
-      border-radius: 12px;
-      cursor: pointer;
-      width: 160px;
-      transition: all 0.3s ease;
-    }
-
-    /* Colores */
-    .general { background: #C7EFCF; }
-    .especifico { background: #D7EFFB; }
-    .especialidad { background: #F9CEDF; }
-    .bloqueado { background: #FDF6EC; }
-
-    /* Estados */
-    .desbloqueado { filter: brightness(100%); }
-    .aprobado { filter: brightness(80%); }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Malla Interactiva - Medicina Humana</h1>
@@ -72,19 +34,6 @@
     <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Metodología de la Investigación Científica</div>
   </div>
 
-  <script>
-    function toggleEstado(curso) {
-      if (curso.classList.contains("bloqueado")) {
-        curso.classList.remove("bloqueado");
-        curso.classList.add("desbloqueado");
-      } else if (curso.classList.contains("desbloqueado")) {
-        curso.classList.remove("desbloqueado");
-        curso.classList.add("aprobado");
-      } else if (curso.classList.contains("aprobado")) {
-        curso.classList.remove("aprobado");
-        curso.classList.add("bloqueado");
-      }
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
