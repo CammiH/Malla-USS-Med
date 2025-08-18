@@ -2,20 +2,89 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Malla Curricular Interactiva</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Malla Medicina Humana</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      margin: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .ciclo {
+      margin: 20px auto;
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .curso {
+      padding: 15px;
+      border-radius: 12px;
+      cursor: pointer;
+      width: 160px;
+      transition: all 0.3s ease;
+    }
+
+    /* Colores */
+    .general { background: #C7EFCF; }
+    .especifico { background: #D7EFFB; }
+    .especialidad { background: #F9CEDF; }
+    .bloqueado { background: #FDF6EC; }
+
+    /* Estados */
+    .desbloqueado { filter: brightness(100%); }
+    .aprobado { filter: brightness(80%); }
+  </style>
 </head>
 <body>
-  <h2>Malla Curricular Interactiva - Ciclos 1 y 2</h2>
+  <h1>Malla Interactiva - Medicina Humana</h1>
 
-  <div id="malla" class="malla"></div>
-
-  <div class="leyenda">
-    <div class="especialidad">Especialidad</div>
-    <div class="general">General</div>
-    <div class="especifico">Específico</div>
+  <!-- Ciclo I -->
+  <div class="ciclo">
+    <div class="curso general bloqueado" onclick="toggleEstado(this)">Comprensión de Textos y Redacción Académica</div>
+    <div class="curso general bloqueado" onclick="toggleEstado(this)">Cátedra Sipán Liderazgo y Competitividad</div>
+    <div class="curso general bloqueado" onclick="toggleEstado(this)">Iniciación a la Investigación</div>
+    <div class="curso general bloqueado" onclick="toggleEstado(this)">Responsabilidad Social</div>
+    <div class="curso general bloqueado" onclick="toggleEstado(this)">Personal Branding</div>
+    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Pensamiento Lógico Matemático</div>
+    <div class="curso general bloqueado" onclick="toggleEstado(this)">Compromiso Ético</div>
+    <div class="curso general bloqueado" onclick="toggleEstado(this)">Inglés I</div>
+    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Biología Celular y Molecular</div>
+    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Introducción a la Medicina</div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Ciclo II -->
+  <div class="ciclo">
+    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Física Médica</div>
+    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Bioquímica</div>
+    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Estructura y Función I</div>
+    <div class="curso general bloqueado" onclick="toggleEstado(this)">Salud Pública I</div>
+    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Métodos Estadísticos</div>
+    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Estructura y Función II</div>
+    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Mecanismos de Agresión y Defensa</div>
+    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Metodología de la Investigación Científica</div>
+  </div>
+
+  <script>
+    function toggleEstado(curso) {
+      if (curso.classList.contains("bloqueado")) {
+        curso.classList.remove("bloqueado");
+        curso.classList.add("desbloqueado");
+      } else if (curso.classList.contains("desbloqueado")) {
+        curso.classList.remove("desbloqueado");
+        curso.classList.add("aprobado");
+      } else if (curso.classList.contains("aprobado")) {
+        curso.classList.remove("aprobado");
+        curso.classList.add("bloqueado");
+      }
+    }
+  </script>
 </body>
 </html>
