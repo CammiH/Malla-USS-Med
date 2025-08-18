@@ -1,66 +1,44 @@
 body {
-  font-family: "Arial", sans-serif;
-  padding: 20px;
+  font-family: Arial, sans-serif;
   background: #fff;
-  color: #333;
-}
-
-h2 {
+  margin: 20px;
   text-align: center;
-  margin-bottom: 30px;
 }
-
-.malla {
-  display: grid;
-  grid-template-columns: repeat(5, 200px);
-  gap: 20px;
+h1 {
+  margin-bottom: 20px;
+}
+.ciclo {
+  margin: 20px auto;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  width: 80%;
+  display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
-
 .curso {
-  padding: 20px;
-  border-radius: 20px;
-  text-align: center;
-  font-weight: bold;
+  padding: 15px;
+  border-radius: 12px;
   cursor: pointer;
+  width: 160px;
   transition: all 0.3s ease;
 }
 
-/* ===== ESTADOS ===== */
+/* Colores */
+.general { background: #C7EFCF; }
+.especifico { background: #D7EFFB; }
+.especialidad { background: #F9CEDF; }
+.bloqueado { background: #FDF6EC; }
 
-/* Bloqueado */
-.bloqueado {
-  background: #FDF6EC;
-  color: #666;
-  border: 2px dashed #574838;
-  font-style: italic;
-}
+/* Estados */
+.desbloqueado { filter: brightness(100%); }
+.aprobado { filter: brightness(80%); }
 
-/* Actual */
-.actual.especialidad { background: #F9CEDF; color: #000; }
-.actual.general { background: #C7EFCF; color: #000; }
-.actual.especifico { background: #D7EFFB; color: #000; }
-
-/* Aprobado */
-.aprobado {
-  background: #FDF6EC;
-  opacity: 0.9;
-  text-decoration: line-through;
-  font-weight: normal;
+/* Flechas (prerrequisitos en futuro) */
+svg line {
+  stroke: #574838;
+  stroke-width: 2;
+  marker-end: url(#arrowhead);
 }
-
-/* ===== LEYENDA ===== */
-.leyenda {
-  margin-top: 40px;
-  text-align: center;
-}
-.leyenda div {
-  display: inline-block;
-  margin: 0 10px;
-  padding: 10px 20px;
-  border-radius: 15px;
-  font-weight: bold;
-}
-.leyenda .especialidad { background-color: #F9CEDF; }
-.leyenda .general { background-color: #C7EFCF; }
-.leyenda .especifico { background-color: #D7EFFB; }
