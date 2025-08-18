@@ -9,30 +9,41 @@
   <h1>Malla Interactiva - Medicina Humana</h1>
 
   <!-- Ciclo I -->
-  <div class="ciclo">
-    <div class="curso general bloqueado" onclick="toggleEstado(this)">Comprensión de Textos y Redacción Académica</div>
-    <div class="curso general bloqueado" onclick="toggleEstado(this)">Cátedra Sipán Liderazgo y Competitividad</div>
-    <div class="curso general bloqueado" onclick="toggleEstado(this)">Iniciación a la Investigación</div>
-    <div class="curso general bloqueado" onclick="toggleEstado(this)">Responsabilidad Social</div>
-    <div class="curso general bloqueado" onclick="toggleEstado(this)">Personal Branding</div>
-    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Pensamiento Lógico Matemático</div>
-    <div class="curso general bloqueado" onclick="toggleEstado(this)">Compromiso Ético</div>
-    <div class="curso general bloqueado" onclick="toggleEstado(this)">Inglés I</div>
-    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Biología Celular y Molecular</div>
-    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Introducción a la Medicina</div>
+  <div class="ciclo" id="ciclo1">
+    <div class="curso general bloqueado" id="curso1" onclick="toggleEstado(this)">
+      Comprensión de Textos y Redacción Académica
+    </div>
+    <div class="curso especifico bloqueado" id="curso2" onclick="toggleEstado(this)">
+      Biología Celular y Molecular
+    </div>
+    <div class="curso especifico bloqueado" id="curso3" onclick="toggleEstado(this)">
+      Introducción a la Medicina
+    </div>
   </div>
 
   <!-- Ciclo II -->
-  <div class="ciclo">
-    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Física Médica</div>
-    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Bioquímica</div>
-    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Estructura y Función I</div>
-    <div class="curso general bloqueado" onclick="toggleEstado(this)">Salud Pública I</div>
-    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Métodos Estadísticos</div>
-    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Estructura y Función II</div>
-    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Mecanismos de Agresión y Defensa</div>
-    <div class="curso especifico bloqueado" onclick="toggleEstado(this)">Metodología de la Investigación Científica</div>
+  <div class="ciclo" id="ciclo2">
+    <div class="curso especifico bloqueado" id="curso4" onclick="toggleEstado(this)">
+      Física Médica
+    </div>
+    <div class="curso especifico bloqueado" id="curso5" onclick="toggleEstado(this)">
+      Bioquímica
+    </div>
+    <div class="curso especifico bloqueado" id="curso6" onclick="toggleEstado(this)">
+      Estructura y Función I
+    </div>
+    <div class="curso especifico bloqueado" id="curso7" onclick="toggleEstado(this)">
+      Estructura y Función II
+    </div>
   </div>
+
+  <!-- Flechas (SVG para unir prerequisitos) -->
+  <svg class="prerequisitos">
+    <!-- Ejemplo: Biología Celular (curso2) es prerequisito de Bioquímica (curso5) -->
+    <line x1="250" y1="120" x2="250" y2="260"></line>
+    <!-- Ejemplo: Introducción a la Medicina (curso3) es prerequisito de Estructura y Función I (curso6) -->
+    <line x1="400" y1="120" x2="400" y2="260"></line>
+  </svg>
 
   <script src="script.js"></script>
 </body>
