@@ -1,90 +1,49 @@
 async function cargarCursos() {
-  const response = await fetch("data.json");
-  const cursos = await response.json();
-  return cursos;
-}
+  try {
+    const response = await fetch("cursos.json");
+    const data = await response.json();
 
-function crearCurso(curso, estado = "bloqueado") {
-  const div = document.createElement("div");
-  div.classList.add("curso", curso.tipo, estado);
-  div.dataset.codigo = curso.codigo;
-  div.innerText = curso.nombre;
+    const malla = document.getElementById("malla");
 
-  // Evento clic para alternar estados
-  div.addEventListener("click", () => {
-    if (div.classList.contains("desbloqueado")) {
-      // Pasa a aprobado
-      div.classList.remove("desbloqueado");
-      div.classList.add("aprobado");
-      desbloquearDependientes(curso.codigo);
+    data.cursos.forEach(curso => {
+      const div = document.createElement("div");
+      div.classList.add("curso");
 
-    } else if (div.classList.contains("aprobado")) {
-      // Vuelve a bloqueado
-      div.classList.remove("aprobado");
-      div.classList.add("bloqueado");
-      reBloquearDependientes(curso.codigo);
-    }
-  });
-
-  return div;
-}
-
-let listaCursos = [];
-
-function renderCursos(cursos) {
-  const contenedor = document.getElementById("contenedor");
-  contenedor.innerHTML = "";
-
-  cursos.forEach(curso => {
-    let estado = "bloqueado";
-
-    // desbloqueado si no tiene prerequisitos
-    if (curso.prerequisitos.length === 0) {
-      estado = "desbloqueado";
-    }
-
-    const divCurso = crearCurso(curso, estado);
-    contenedor.appendChild(divCurso);
-  });
-
-  listaCursos = cursos;
-}
-
-function desbloquearDependientes(codigo) {
-  listaCursos.forEach(curso => {
-    if (curso.prerequisitos.includes(codigo)) {
-      const div = document.querySelector(`[data-codigo="${curso.codigo}"]`);
-      if (div.classList.contains("bloqueado")) {
-        // verificamos si TODOS los prerequisitos ya están aprobados
-        const todosAprobados = curso.prerequisitos.every(pre => {
-          const divPre = document.querySelector(`[data-codigo="${pre}"]`);
-          return divPre.classList.contains("aprobado");
-        });
-
-        if (todosAprobados) {
-          div.classList.remove("bloqueado");
-          div.classList.add("desbloqueado");
-        }
-      }
-    }
-  });
-}
-
-function reBloquearDependientes(codigo) {
-  listaCursos.forEach(curso => {
-    if (curso.prerequisitos.includes(codigo)) {
-      const div = document.querySelector(`[data-codigo="${curso.codigo}"]`);
-      if (div.classList.contains("desbloqueado") || div.classList.contains("aprobado")) {
-        // Se bloquea de nuevo
-        div.classList.remove("desbloqueado", "aprobado");
+      // Estado inicial
+      if (curso.estado === "bloqueado") {
         div.classList.add("bloqueado");
-
-        // Rebloqueo en cadena
-        reBloquearDependientes(curso.codigo);
+      } else if (curso.estado === "aprobado") {
+        div.classList.add("aprobado");
+      } else if (curso.estado === "actual") {
+        div.classList.add("actual", curso.tipo);
       }
-    }
-  });
+
+      // Tipo de curso
+      div.dataset.tipo = curso.tipo;
+      div.textContent = curso.nombre;
+
+      // Click → Bloqueado <-> Actual
+      div.addEventListener("click", () => {
+        if (div.classList.contains("bloqueado")) {
+          div.classList.remove("bloqueado", "aprobado");
+          div.classList.add("actual", div.dataset.tipo);
+        } else if (div.classList.contains("actual")) {
+          div.classList.remove("actual", "especialidad", "general", "especifico");
+          div.classList.add("bloqueado");
+        }
+      });
+
+      // Doble clic → Aprobado
+      div.addEventListener("dblclick", () => {
+        div.classList.remove("bloqueado", "actual", "especialidad", "general", "especifico");
+        div.classList.add("aprobado");
+      });
+
+      malla.appendChild(div);
+    });
+  } catch (error) {
+    console.error("Error al cargar los cursos:", error);
+  }
 }
 
-// Inicializar
-cargarCursos().then(renderCursos);
+cargarCursos();
