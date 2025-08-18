@@ -8,7 +8,7 @@ h1 {
   margin-bottom: 20px;
 }
 .ciclo {
-  margin: 20px auto;
+  margin: 30px auto;
   padding: 10px;
   border: 2px solid #ccc;
   border-radius: 12px;
@@ -17,16 +17,18 @@ h1 {
   justify-content: center;
   flex-wrap: wrap;
   gap: 15px;
+  position: relative;
 }
 .curso {
   padding: 15px;
   border-radius: 12px;
   cursor: pointer;
-  width: 160px;
+  width: 200px;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
-/* Colores */
+/* Colores base */
 .general { background: #C7EFCF; }
 .especifico { background: #D7EFFB; }
 .especialidad { background: #F9CEDF; }
@@ -36,8 +38,16 @@ h1 {
 .desbloqueado { filter: brightness(100%); }
 .aprobado { filter: brightness(80%); }
 
-/* Flechas (prerrequisitos en futuro) */
-svg line {
+/* Flechas (SVG) */
+.prerequisitos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  pointer-events: none;
+}
+.prerequisitos line {
   stroke: #574838;
   stroke-width: 2;
   marker-end: url(#arrowhead);
