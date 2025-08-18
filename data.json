@@ -1,20 +1,17 @@
-[
-  {
-    "codigo": "1EG011",
-    "nombre": "Iniciación a la Investigación",
-    "tipo": "general",
-    "prerequisitos": []
-  },
-  {
-    "codigo": "1MH011",
-    "nombre": "Biología Celular y Molecular",
-    "tipo": "especifico",
-    "prerequisitos": []
-  },
-  {
-    "codigo": "1MH021",
-    "nombre": "Física Médica",
-    "tipo": "especialidad",
-    "prerequisitos": ["1MH011"]
-  }
-]
+{
+  "cursos": [
+    { "id": "1-1", "nombre": "Anatomía Humana I", "tipo": "especifico", "estado": "bloqueado" },
+    { "id": "1-2", "nombre": "Histología I", "tipo": "especifico", "estado": "bloqueado" },
+    { "id": "1-3", "nombre": "Química General", "tipo": "general", "estado": "bloqueado" },
+    { "id": "1-4", "nombre": "Biología Celular", "tipo": "especifico", "estado": "bloqueado" },
+    { "id": "1-5", "nombre": "Metodología del Estudio", "tipo": "general", "estado": "bloqueado" },
+    { "id": "1-6", "nombre": "Comunicación Oral y Escrita", "tipo": "general", "estado": "bloqueado" },
+
+    { "id": "2-1", "nombre": "Anatomía Humana II", "tipo": "especifico", "estado": "bloqueado" },
+    { "id": "2-2", "nombre": "Histología II", "tipo": "especifico", "estado": "bloqueado" },
+    { "id": "2-3", "nombre": "Bioquímica I", "tipo": "especifico", "estado": "bloqueado" },
+    { "id": "2-4", "nombre": "Física Médica", "tipo": "general", "estado": "bloqueado" },
+    { "id": "2-5", "nombre": "Psicología General", "tipo": "general", "estado": "bloqueado" },
+    { "id": "2-6", "nombre": "Cultura y Sociedad", "tipo": "general", "estado": "bloqueado" }
+  ]
+}
